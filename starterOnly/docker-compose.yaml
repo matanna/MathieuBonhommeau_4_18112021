@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: web-environment
+    restart: always
+    container_name: web-container
+    ports: 
+      - "7000:80"
+    volumes:
+      - ./:/usr/share/nginx/html
