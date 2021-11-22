@@ -20,6 +20,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
+  document.documentElement.style.overflow = "hidden";
   modalbg.classList.remove("hide-bground");
   modalContent.classList.remove("hide-content");
 }
@@ -29,6 +30,7 @@ modalClose.addEventListener('click', closeModal);
 
 //close modal form
 function closeModal() {
+  document.documentElement.style.overflow = "overlay";
 
   //Retrieve delay of animation from css variable, remove the 's' and change number in millisecond
   const animationDuration = (getComputedStyle(modalContent).animationDuration.replace('s', '')) * 1000;
@@ -40,5 +42,4 @@ function closeModal() {
   //Apply a delay (animationDuration) for hide modal
   setTimeout(() => modalbg.style.display = "none", animationDuration);
 }
-
 
