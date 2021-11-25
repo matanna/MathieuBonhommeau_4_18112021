@@ -1,4 +1,19 @@
+/**
+ * Class for create a Player object with setters for validate datas. A valid player can be registered for competitions
+ * 
+ * @module MyClass
+ */
 export class Player {
+  /**
+   * @param {string} firstName 
+   * @param {string} lastName 
+   * @param {string} email 
+   * @param {datetime} birthdate 
+   * @param {number} nbOfTournaments 
+   * @param {string} location 
+   * @param {boolean} termsAndConditions 
+   * @param {boolean} newsletter 
+   */
   constructor(firstName, lastName, email, birthdate, nbOfTournaments, location, termsAndConditions, newsletter) {
     this._firstName = firstName;
     this._lastName = lastName;
