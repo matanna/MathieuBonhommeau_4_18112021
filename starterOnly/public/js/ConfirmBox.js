@@ -20,7 +20,12 @@ export class ConfirmBox {
     build() {
         const confirmationBox = document.createElement('div');
         confirmationBox.classList.add('confirm');
-        confirmationBox.innerHTML = "<div class='confirm-msg'>" + this.createTitle().outerHTML + this.createBody().outerHTML  + "</div>" + this.createButton().outerHTML;
+        confirmationBox.innerHTML = 
+            `<div class='confirm-msg'> 
+                ${this.createTitle().outerHTML} 
+                ${this.createBody().outerHTML} 
+            </div> 
+            ${this.createButton().outerHTML}`
         return confirmationBox;
     }
 
