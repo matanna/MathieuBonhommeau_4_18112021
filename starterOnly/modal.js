@@ -47,6 +47,8 @@ reservationForm.addEventListener('submit', onReservationSubmit);
  */
 function launchModal() {
 
+  window.scrollTo(0, 0);
+
   //Cancel the height of modal if is necessary
   modalBody.style.height = 'inherit';
 
@@ -73,8 +75,7 @@ const closeModalContent = () => { modalContent.classList.add("hide-content") };
  * @returns {void}
  */
 function closeModalBground() {
-  //The scrollbar is in position "absolute"
-  document.documentElement.style.overflow = "overlay";
+  document.documentElement.style.overflow = "auto";
 
   modalbg.classList.add("hide-bground");
   setTimeout(() => modalbg.style.display = "none", animationDuration);
