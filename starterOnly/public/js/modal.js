@@ -5,6 +5,11 @@
 import {Player} from './Player.js';
 import {ConfirmBox} from './ConfirmBox.js';
 
+/**
+ * Display menu in terms of screen size
+ * 
+ * @return {void}
+ */
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
