@@ -5,7 +5,6 @@
 }
 
 html {
-  overflow: overlay;
   height: 100vh;
 }
 
@@ -13,12 +12,12 @@ html {
   margin: 0;
   padding: 0;
 }
+
 /* Landing Page */
 body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -44,6 +43,8 @@ img {
 .header-logo {
     float: left;
 }
+
+
 .main-navbar {
     float: right;
 }
@@ -75,15 +76,35 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
+@media screen and (min-width: 768px) and (max-width: 1200px) { 
+  .main-navbar {
+    float: left;
+    width: 100%;
+    margin-top: 50px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
+  .topnav {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3.5%;
+    padding: 10px 0;
+    height: 50px;
+  } 
+  
+  .topnav a {
+     display: none;
+   }
+   .topnav a.icon {
+     display: block;
+     padding: 12px 0;
+   }
+   .topnav a:hover {
+     background-color: inherit;
+     color: red;
+   }
+
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -95,17 +116,18 @@ img {
     display: block;
     text-align: left;
   }
+
+  .header-logo {
+    display: flex;
+  }
+  .header-logo img {
+    object-fit: contain;
+    width: 50%;
+  }
 }
 
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
+@media screen and (max-width: 540px) {
+  
 } 
 
 main {
@@ -117,9 +139,16 @@ main {
   padding-right: 2vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
-  text-align: justify;
   flex-shrink: 2;
   flex-grow: 1;
+}
+
+@media screen and (max-width: 767px) {
+  main {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 3.5%;
+  }
 }
 
 .modal-btn {
@@ -177,6 +206,11 @@ main {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
+@media screen and (max-width: 767px) {
+  .bground {
+    background-color: unset;
+  } 
+}
 
 .hide-bground {
   animation-name: bgroundclose;
@@ -195,7 +229,17 @@ main {
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .content {
+    margin: 0 auto;
+    position: relative;
+    bottom: 0;
+    top: 70px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 .hide-content {
@@ -249,14 +293,27 @@ input {
   border: 0.8px solid #ccc;
   outline: none;
 }
+
 .text-control {
   margin: 0;
   padding: 8px;
   width: 100%;
   border-radius: 8px;
   font-size: 20px;
-  height: 40px;
+  height: 55px;
+  box-sizing: border-box;
 }
+
+@media screen and (max-width: 767px) {
+  .modal-body {
+    padding: 10px 4%;
+  }
+  .text-control {
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -289,7 +346,8 @@ input {
 .checkbox-label,
 .checkbox2-label {
   position: relative;
-  margin-left: 36px;
+  margin-left: 30px;
+  margin-right: 10px;
   font-size: 12px;
   font-weight: normal;
 }
@@ -304,14 +362,14 @@ input {
   white-space: nowrap;
   position: absolute;
   left: -30px;
-  top: -1px;
+  top: -3px;
   transition: 0.3s;
 }
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
-  width: 13px;
-  height: 13px;
+  width: 70%;
+  height: 70%;
   background-color: #279e7a;
   border-radius: 50%;
   text-indent: 29px;
@@ -457,34 +515,29 @@ input {
 .text-label {
   font-weight: normal;
   font-size: 16px;
+  padding: 0;
+  margin-top: 11px;
+  margin-bottom: 11px;
 }
 .hero-section {
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
+  background: #232323;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
   height: 100%;
 }
 .hero-content {
   padding: 51px 67px;
-  grid-column: span 4;
-  background: #232323;
+  grid-column: span 5;
   color: #fff;
   position: relative;
   text-align: left;
   min-width: 350px;
 }
-/*.hero-content::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: #232323;
-  position: absolute;
-  right: -80px;
-  top: 0;
-}*/
+
 .hero-content > * {
   position: relative;
   z-index: 1;
@@ -508,7 +561,7 @@ input {
   margin-top: 59px;
 }
 .hero-img {
-  grid-column: span 8;
+  grid-column: span 7;
 }
 .hero-img img {
   width: 100%;
@@ -532,15 +585,30 @@ footer {
   margin: 0 20px;
   flex-shrink: 0;
 }
-@media screen and (max-width: 800px) {
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .hero-headline {
+    font-size: 4.5rem;
+  }
+  .hero-content {
+    min-width: unset;
+  }
+  .hero-text {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 767px) {
   .hero-section {
     display: block;
     box-shadow: unset;
+    background-color: unset;;
   }
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 0;
+    min-width: unset;
   }
   .hero-content::after {
     content: unset;
@@ -549,25 +617,29 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     white-space: normal;
+    font-weight: bold;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 25px;
   }
   .hero-img img {
     border-radius: 10px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
   .hero-section > .btn-signup {
     display: block;
     margin: 32px auto 10px;
     padding: 12px 35px;
+    font-size: 1rem;
   }
   .copyrights {
-    margin-top: 50px;
+    margin: 0 0 25px 0;
     text-align: center;
+    font-size: 0.7rem;
   }
 }
 
