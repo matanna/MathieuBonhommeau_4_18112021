@@ -298,6 +298,9 @@ input {
   border: 0.8px solid #ccc;
   outline: none;
 }
+input:invalid:focus {
+  outline: 2px solid red;
+}
 
 .text-control {
   margin: 0;
