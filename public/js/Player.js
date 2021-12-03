@@ -18,7 +18,7 @@ export class Player {
     this._firstName = firstName;
     this._lastName = lastName;
     this._email = email;
-    this.birthdate = birthdate;
+    this._birthdate = birthdate;
     this._nbOfTournaments = nbOfTournaments;
     this._location = location;
     this._termsAndConditions = termsAndConditions;
@@ -57,6 +57,18 @@ export class Player {
       throw "Cette adresse n'est pas valide.";
     } else {
       this._email = email;
+    }
+  }
+
+  get birthdate() {
+    return this._birthdate;
+  }
+  set birthdate(birthdate) {
+    if(birthdate === '') {
+      throw 'Vous devez indiquer votre date de naissance';
+
+    } else {
+      this._birthdate = birthdate;
     }
   }
 
